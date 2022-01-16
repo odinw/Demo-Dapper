@@ -1,0 +1,57 @@
+
+DB
+Server=localhost\SQLEXPRESS01;Database=master;Trusted_Connection=True;
+
+
+從 SQL Server Management Studio (SSMS) 18.7 開始，Azure Data Studio 會與 SSMS 一起自動安裝
+https://docs.microsoft.com/zh-tw/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&view=sql-server-ver15
+
+什麼是 Azure Data Studio？
+https://docs.microsoft.com/zh-tw/sql/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15
+
+
+
+資料庫必會必知 之 SQL四種語言：DDL DML DCL TCL
+https://codertw.com/資料庫/10958/
+CREATE DATASET
+
+
+Prime Key (主鍵) by 自動整數編號
+	[MySQL] AUTO_INCREMENT 自動累加
+	https://dotblogs.com.tw/IanChiu28/2017/05/21/142523
+	
+	如何建立時，自動回撈？
+	因建立後可能要馬上用於其他關連表
+	https://gogo1119.pixnet.net/blog/post/27425873
+	https://dotblogs.com.tw/ajun/2008/04/01/2504
+	已實測
+	SELECT scope_identity() 可撈取當前 Table 最新的 AUTO_INCREMENT
+	缺點：批次 insert 時，只能取得最後一筆的 id => 想全部取得，有待研究
+
+
+
+
+DB table 命名
+	http://www.vixual.net/blog/archives/85
+
+
+
+
+	https://kknews.cc/news/r5b22ar.html
+	不要型別，如：datetime
+	不要存在無用前綴
+
+
+	https://www.itread01.com/content/1544270418.html
+	禁止使用關鍵字，如：name, time, select, group, order 等等
+	單詞形式，列如：user，而非 users（因為使用者表是一個的而不是多個）
+	欄位必須填寫描述資訊
+	不要重複表的名稱（如：在 user 表中，出現 user_name 欄位）
+	欄位命名使用完整名稱，而非自訂的縮寫
+
+	SQL語言編碼規範
+	　　1）所有關鍵字最好大寫，如：DELETE、UPDATE、INSERT等等
+	　　2）多有函式及其引數中除使用者變數以外的部分大寫
+			=> 不太懂
+	　　3）在定義變數時用到的資料型別小寫
+			=> 不太懂
