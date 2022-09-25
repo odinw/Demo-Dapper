@@ -20,7 +20,7 @@ namespace Demo_Dapper
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IMsSql, MsSql>(x => new MsSql(Configuration["DbString"]));
+            services.AddScoped<IDb, Db>(x => new Db(Configuration["DbString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

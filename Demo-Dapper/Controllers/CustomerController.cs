@@ -1,11 +1,7 @@
-﻿using Demo_Dapper.Models;
+﻿using Demo_Dapper.Dtos;
 using Demo_Dapper.SqlHelper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 
 namespace Demo_Dapper.Controllers
 {
@@ -13,27 +9,17 @@ namespace Demo_Dapper.Controllers
     [Route("[controller]")]
     public class CustomerController : ControllerBase
     {
-        private readonly ILogger<CustomerController> _logger;
-        private readonly IConfiguration _configuration;
-        private readonly IMsSql _msSql;
+        readonly IDb _db;
 
-        public CustomerController(ILogger<CustomerController> logger, IConfiguration configuration, IMsSql msSql)
+        public CustomerController(IDb db)
         {
-            _logger = logger;
-            _configuration = configuration;
-            _msSql = msSql;
+            _db = db;
         }
 
-        [HttpGet]
-        public IEnumerable<Customer> Get()
+        public IEnumerable<CustomerDto> Get()
         {
-            var customers = _msSql.Select_Customer();
-
-            return customers.AsEnumerable().Select(customer => new Customer
-            {
-                Name = customer[nameof(Customer.Name)].ToString(),
-                Age = int.Parse(customer[nameof(Customer.Age)].ToString())
-            });
+            var result = _db.Select_Customer();
+            return result;
         }
     }
 }

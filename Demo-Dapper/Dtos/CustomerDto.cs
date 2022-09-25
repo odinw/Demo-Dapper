@@ -1,6 +1,6 @@
-namespace Demo_Dapper.Models
+namespace Demo_Dapper.Dtos
 {
-    public class Customer
+    public class CustomerDto
     {
         public string Name { get; set; }
 
