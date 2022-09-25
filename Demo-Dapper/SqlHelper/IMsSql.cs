@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace Demo_Dapper.SqlClientHelper
+namespace Demo_Dapper.SqlHelper
 {
     public interface IMsSql
     {

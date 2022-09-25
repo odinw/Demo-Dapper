@@ -1,12 +1,11 @@
-﻿using Demo_Dapper.SqlClientHelper;
+﻿using Demo_Dapper.Models;
+using Demo_Dapper.SqlHelper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Demo_Dapper.Controllers
 {
@@ -30,17 +29,11 @@ namespace Demo_Dapper.Controllers
         {
             var customers = _msSql.Select_Customer();
 
-            List<Customer> name = new List<Customer>();
-            foreach (DataRow customer in customers.Rows)
+            return customers.AsEnumerable().Select(customer => new Customer
             {
-                name.Add(new Customer
-                {
-                    Name = customer[nameof(Customer.Name)].ToString(),
-                    Age = int.Parse(customer[nameof(Customer.Age)].ToString())
-                });
-            }
-
-            return name;
+                Name = customer[nameof(Customer.Name)].ToString(),
+                Age = int.Parse(customer[nameof(Customer.Age)].ToString())
+            });
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace Demo_Dapper.SqlClientHelper
+namespace Demo_Dapper.SqlHelper
 {
     public class MsSql : IMsSql
     {
@@ -17,8 +17,8 @@ namespace Demo_Dapper.SqlClientHelper
             using SqlConnection connection = new SqlConnection(_connectionInfo);
             using SqlCommand command = new SqlCommand(sql, connection);
             connection.Open();
-            using SqlDataReader reader = command.ExecuteReader();
 
+            using SqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 DataTable dt = new DataTable();
@@ -35,7 +35,7 @@ namespace Demo_Dapper.SqlClientHelper
         /// <returns></returns>
         public DataTable Select_Customer()
         {
-            string query = @$"SELECT * FROM Customer";
+            string query = "SELECT * FROM Customer";
             return Run(query);
         }
     }

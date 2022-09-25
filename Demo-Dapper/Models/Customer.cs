@@ -1,4 +1,4 @@
-namespace Demo_Dapper
+namespace Demo_Dapper.Models
 {
     public class Customer
     {
