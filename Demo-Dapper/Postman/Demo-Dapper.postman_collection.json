@@ -1,0 +1,28 @@
+{
+	"info": {
+		"_postman_id": "a8514e26-06e9-4696-86d4-f478e6d32e5e",
+		"name": "Demo-Dapper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "customer all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:17312/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "17312",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
