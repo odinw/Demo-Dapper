@@ -7,18 +7,28 @@ namespace Demo_Dapper.SqlHelper
 {
     public class Db : IDb
     {
-        readonly string _dbString;
+        readonly SqlConnection _sqlconnection;
 
         public Db(string dbString)
         {
-            _dbString = dbString;
+            _sqlconnection = new SqlConnection(dbString);
         }
 
         public IEnumerable<CustomerDto> Select_Customer()
         {
-            using var connection = new SqlConnection(_dbString);
             var sql = "SELECT * FROM Customer";
-            var result = connection.Query<CustomerDto>(sql);
+            var result = _sqlconnection.Query<CustomerDto>(sql);
+            return result;
+        }
+
+        public IEnumerable<CustomerDto> Select_Customer(int[] id)
+        {
+            var sql = "SELECT * FROM Customer WHERE id IN @id";
+            var parameters = new
+            {
+                id = id
+            };
+            var result = _sqlconnection.Query<CustomerDto>(sql, parameters);
             return result;
         }
     }

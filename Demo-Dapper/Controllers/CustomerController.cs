@@ -21,5 +21,12 @@ namespace Demo_Dapper.Controllers
             var result = _db.Select_Customer();
             return result;
         }
+
+        [HttpGet]
+        public IEnumerable<CustomerDto> Get([FromBody] int[] id)
+        {
+            var result = _db.Select_Customer(id);
+            return result;
+        }
     }
 }

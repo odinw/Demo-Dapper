@@ -23,6 +23,38 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "customer range",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1, 2]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:17312/customer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "17312",
+					"path": [
+						"customer",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
