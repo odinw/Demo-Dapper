@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using Demo_Dapper.Models;
-using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace Demo_Dapper.Repository;
 
