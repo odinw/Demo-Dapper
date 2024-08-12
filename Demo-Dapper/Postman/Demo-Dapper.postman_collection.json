@@ -1,23 +1,84 @@
 {
 	"info": {
-		"_postman_id": "a8514e26-06e9-4696-86d4-f478e6d32e5e",
+		"_postman_id": "2c37ca19-48b5-4d85-80e6-7462f8ec67e9",
 		"name": "Demo-Dapper",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20669732"
 	},
 	"item": [
 		{
-			"name": "customer all",
+			"name": "customer",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Name\": \"Postman\",\r\n        \"Age\": \"1\"\r\n    },\r\n    {\r\n        \"Name\": \"Postman\",\r\n        \"Age\": \"2\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:17312/customer",
+					"raw": "http://localhost:17312/api/customer/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "17312",
 					"path": [
+						"api",
+						"customer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[17, 18]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:17312/api/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "17312",
+					"path": [
+						"api",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:17312/api/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "17312",
+					"path": [
+						"api",
 						"customer"
 					]
 				}
@@ -42,15 +103,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:17312/customer/",
+					"raw": "http://localhost:17312/api/customer/ByIds",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "17312",
 					"path": [
+						"api",
 						"customer",
-						""
+						"ByIds"
 					]
 				}
 			},
