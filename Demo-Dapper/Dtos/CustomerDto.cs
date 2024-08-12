@@ -1,9 +1,8 @@
-namespace Demo_Dapper.Dtos
-{
-    public class CustomerDto
-    {
-        public string Name { get; set; }
+namespace Demo_Dapper.Dtos;
 
-        public int Age { get; set; }
-    }
+public class CustomerDto
+{
+    public string Name { get; set; }
+
+    public int Age { get; set; }
 }
