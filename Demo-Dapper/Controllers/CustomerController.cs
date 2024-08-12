@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Demo_Dapper.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class CustomerController : ControllerBase
 {
     readonly CustomerRepository _repository;
